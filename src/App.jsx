@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import component and styles
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
@@ -9,6 +9,19 @@ import BACKGROUNDS from "./utils/backgrounds.json";
 import Botones from "./Botones";
 
 const App = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [sizeDrawer, setSizeDrawer] = useState(300);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setScreenWidth(window.innerWidth));
+    return () => window.removeEventListener("resize", () => setScreenWidth(window.innerWidth));
+  }, []);
+
+  useEffect(() => {
+    if (screenWidth < 400) setSizeDrawer(250);
+    else setSizeDrawer(150);
+  }, [screenWidth]);
+
   //========================   OPEN DRAWER   ========================
   const [isOpen, setIsOpen] = useState(false);
 
@@ -43,7 +56,7 @@ const App = () => {
   //========================      JSX      ========================
   return (
     <div style={{ "--color-accent": colorAccent, "--color-primary": colorPrimary, "--color-drawer": colorDrawer }}>
-      <div dangerouslySetInnerHTML={{ __html: dataBackground }}></div>
+      <div style={{ position: "fixed !important" }} dangerouslySetInnerHTML={{ __html: dataBackground }}></div>
       {/* TITLE */}
       <div className="titulo">
         <h1>{titulo}</h1>
@@ -67,7 +80,14 @@ const App = () => {
         <p className="subtitle">Many free backgrounds in HTML & REACT for you website</p>
       )}
       {/* DRAWER */}
-      <Drawer className="Drawer" open={isOpen} size={150} enableOverlay={false} direction="right" duration={200}>
+      <Drawer
+        className="Drawer"
+        open={isOpen}
+        size={sizeDrawer}
+        enableOverlay={false}
+        direction={`${screenWidth < 400 ? "bottom" : "right"}`}
+        duration={200}
+      >
         <div className="divPadre">
           {/* BUTTON GENERAL HOME */}
           <div className="divBoton">

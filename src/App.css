@@ -199,3 +199,75 @@ body {
 ::-webkit-scrollbar-thumb {
   background: gray;
 }
+
+/* media query for mobiles */
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .circleBackground {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .circleBackgroundDrawer {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .titulo {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .containerDrawer {
+    margin-top: 0.5rem;
+    flex-direction: row !important;
+  }
+
+  .circleAndTitle {
+    width: 40%;
+  }
+
+  .titleCircle {
+    font-size: 1rem;
+  }
+
+  .botonGeneral {
+    padding: 15px 10px;
+  }
+
+  .botonGeneralCopy {
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .homeIcon {
+    width: 10px;
+    height: 10px;
+  }
+
+  .homeIconCopy {
+    width: 20px;
+    height: 20px;
+  }
+  .BotonesCopy {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .componentDrawer {
+    display: flex;
+    flex-direction: row !important;
+  }
+}
