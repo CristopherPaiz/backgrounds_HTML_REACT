@@ -39,10 +39,10 @@ const App = () => {
   //======================== BUTTON DRAWER ===========================
   const closeDrawer = () => {
     setIsOpen(false);
-    setColorAccent("#000");
-    setColorPrimary("#fff");
-    setDataBackground("<div></div>");
-    setTitulo("Backgrounds HTML & REACT");
+    // setColorAccent("#000");
+    // setColorPrimary("#fff");
+    // setDataBackground("<div></div>");
+    // setTitulo("Backgrounds HTML & REACT");
   };
 
   //========================   COMPONENTS    ========================
@@ -58,14 +58,15 @@ const App = () => {
     <div style={{ "--color-accent": colorAccent, "--color-primary": colorPrimary, "--color-drawer": colorDrawer }}>
       <div style={{ position: "fixed !important" }} dangerouslySetInnerHTML={{ __html: dataBackground }}></div>
       {/* TITLE */}
-      {isOpen ? (
-        <Botones backgroundData={backgroundData} />
-      ) : (
-        <p className="subtitle">Many free backgrounds in HTML & REACT for you website</p>
-      )}
       <div className="titulo">
         <h1>{titulo}</h1>
       </div>
+      {isOpen ? (
+        <Botones backgroundData={backgroundData} />
+      ) : (
+        <p className="subtitle">Free backgrounds for HTML & REACT</p>
+      )}
+
       {/* HOME COMPONENTS */}
       <div className={`container ${!isOpen ? "fadeIn" : "fadeOut"}`}>
         {BACKGROUNDS.map((background) => (
