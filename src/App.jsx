@@ -18,7 +18,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    if (screenWidth < 400) setSizeDrawer(250);
+    if (screenWidth < 600) setSizeDrawer(250);
     else setSizeDrawer(150);
   }, [screenWidth]);
 
@@ -85,7 +85,7 @@ const App = () => {
         open={isOpen}
         size={sizeDrawer}
         enableOverlay={false}
-        direction={`${screenWidth < 400 ? "bottom" : "right"}`}
+        direction={`${screenWidth < 600 ? "bottom" : "right"}`}
         duration={200}
       >
         <div className="divPadre">
